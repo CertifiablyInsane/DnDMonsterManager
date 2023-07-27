@@ -41,11 +41,6 @@
             label2 = new Label();
             pnlDashboard = new Panel();
             pnlMovableArea = new Panel();
-            pnlMonster_1 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            tableLayoutPanel7 = new TableLayoutPanel();
-            button1 = new Button();
-            pnlMoveBar = new Panel();
             textBox1 = new TextBox();
             pnlCreateMonster = new Panel();
             label3 = new Label();
@@ -84,10 +79,6 @@
             pnlIcon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlDashboard.SuspendLayout();
-            pnlMovableArea.SuspendLayout();
-            pnlMonster_1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel7.SuspendLayout();
             pnlCreateMonster.SuspendLayout();
             pnlCrMonPadding.SuspendLayout();
             pnlCrMonData.SuspendLayout();
@@ -275,77 +266,11 @@
             // pnlMovableArea
             // 
             pnlMovableArea.BackColor = Color.FromArgb(37, 42, 64);
-            pnlMovableArea.Controls.Add(pnlMonster_1);
             pnlMovableArea.Dock = DockStyle.Fill;
             pnlMovableArea.Location = new Point(32, 96);
             pnlMovableArea.Name = "pnlMovableArea";
             pnlMovableArea.Size = new Size(1065, 733);
             pnlMovableArea.TabIndex = 2;
-            // 
-            // pnlMonster_1
-            // 
-            pnlMonster_1.Controls.Add(tableLayoutPanel1);
-            pnlMonster_1.Location = new Point(32, 39);
-            pnlMonster_1.Name = "pnlMonster_1";
-            pnlMonster_1.Size = new Size(233, 373);
-            pnlMonster_1.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(24, 30, 54);
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel7, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(233, 373);
-            tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel7
-            // 
-            tableLayoutPanel7.BackColor = Color.FromArgb(158, 161, 176);
-            tableLayoutPanel7.ColumnCount = 2;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel7.Controls.Add(button1, 1, 0);
-            tableLayoutPanel7.Controls.Add(pnlMoveBar, 0, 0);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(0, 0);
-            tableLayoutPanel7.Margin = new Padding(0);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 1;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(233, 32);
-            tableLayoutPanel7.TabIndex = 0;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.Dock = DockStyle.Fill;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(205, 4);
-            button1.Margin = new Padding(4);
-            button1.Name = "button1";
-            button1.Size = new Size(24, 24);
-            button1.TabIndex = 0;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // pnlMoveBar
-            // 
-            pnlMoveBar.BackColor = Color.FromArgb(158, 161, 176);
-            pnlMoveBar.Dock = DockStyle.Fill;
-            pnlMoveBar.Location = new Point(0, 0);
-            pnlMoveBar.Margin = new Padding(0);
-            pnlMoveBar.Name = "pnlMoveBar";
-            pnlMoveBar.Size = new Size(201, 32);
-            pnlMoveBar.TabIndex = 1;
             // 
             // textBox1
             // 
@@ -793,8 +718,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1584, 861);
-            Controls.Add(pnlCreateMonster);
             Controls.Add(pnlDashboard);
+            Controls.Add(pnlCreateMonster);
             Controls.Add(pnlMonsterScroll);
             Controls.Add(pnlOutput);
             Controls.Add(pnlSettings);
@@ -810,10 +735,6 @@
             pnlIcon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlDashboard.ResumeLayout(false);
-            pnlMovableArea.ResumeLayout(false);
-            pnlMonster_1.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel7.ResumeLayout(false);
             pnlCreateMonster.ResumeLayout(false);
             pnlCreateMonster.PerformLayout();
             pnlCrMonPadding.ResumeLayout(false);
@@ -893,10 +814,5 @@
         private Label label1;
         private Button btnDeleteMonster;
         private Panel pnlMovableArea;
-        private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel7;
-        private Button button1;
-        private Panel pnlMoveBar;
-        private Panel pnlMonster_1;
     }
 }
