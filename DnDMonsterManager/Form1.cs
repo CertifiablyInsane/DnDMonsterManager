@@ -11,7 +11,6 @@ namespace DnDMonsterManager
         private List<MonsterPanel>? activeMonsterPanels;
         private Output? output;
         private MonsterScroll? monsterScroll;
-        private Point start;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 

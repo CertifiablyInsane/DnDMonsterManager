@@ -41,7 +41,12 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             label3 = new Label();
             label4 = new Label();
+            tableLayoutPanel5 = new TableLayoutPanel();
             CrMon_btnSave = new Button();
+            button3 = new Button();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            label5 = new Label();
+            textBox1 = new TextBox();
             button2 = new Button();
             pnlMonster_1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -50,6 +55,8 @@
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             tableLayoutPanel4.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
             SuspendLayout();
             // 
             // pnlMonster_1
@@ -126,14 +133,16 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 0, 2);
-            tableLayoutPanel2.Controls.Add(button2, 0, 3);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel6, 0, 3);
+            tableLayoutPanel2.Controls.Add(button2, 0, 4);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 35);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 4;
+            tableLayoutPanel2.RowCount = 5;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
             tableLayoutPanel2.Size = new Size(210, 305);
             tableLayoutPanel2.TabIndex = 1;
@@ -167,7 +176,6 @@
             // label1
             // 
             label1.Anchor = AnchorStyles.Left;
-            label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(158, 161, 176);
             label1.Location = new Point(51, 6);
@@ -182,11 +190,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(158, 161, 176);
-            label2.Location = new Point(31, 44);
+            label2.Location = new Point(62, 44);
             label2.Name = "label2";
-            label2.Size = new Size(148, 48);
+            label2.Size = new Size(85, 24);
             label2.TabIndex = 1;
-            label2.Text = "ANCIENT RED DRAGON";
+            label2.Text = "GOBLIN";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
@@ -195,15 +203,16 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Controls.Add(label3, 0, 0);
             tableLayoutPanel4.Controls.Add(label4, 0, 1);
-            tableLayoutPanel4.Controls.Add(CrMon_btnSave, 0, 2);
+            tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 2);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 107);
+            tableLayoutPanel4.Location = new Point(2, 82);
+            tableLayoutPanel4.Margin = new Padding(2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 3;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel4.Size = new Size(204, 162);
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 45F));
+            tableLayoutPanel4.Size = new Size(206, 92);
             tableLayoutPanel4.TabIndex = 2;
             // 
             // label3
@@ -212,12 +221,13 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(158, 161, 176);
-            label3.Location = new Point(77, 26);
-            label3.Margin = new Padding(6);
+            label3.Location = new Point(78, 2);
+            label3.Margin = new Padding(2);
             label3.Name = "label3";
-            label3.Size = new Size(49, 16);
+            label3.Size = new Size(49, 14);
             label3.TabIndex = 0;
             label3.Text = "Health:";
+            label3.TextAlign = ContentAlignment.BottomCenter;
             // 
             // label4
             // 
@@ -225,26 +235,97 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(0, 126, 249);
-            label4.Location = new Point(81, 54);
-            label4.Margin = new Padding(6);
+            label4.Location = new Point(82, 20);
+            label4.Margin = new Padding(2);
             label4.Name = "label4";
             label4.Size = new Size(42, 25);
             label4.TabIndex = 1;
             label4.Text = "576";
+            label4.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(CrMon_btnSave, 0, 0);
+            tableLayoutPanel5.Controls.Add(button3, 1, 0);
+            tableLayoutPanel5.Location = new Point(3, 53);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Size = new Size(200, 36);
+            tableLayoutPanel5.TabIndex = 2;
             // 
             // CrMon_btnSave
             // 
-            CrMon_btnSave.Anchor = AnchorStyles.None;
             CrMon_btnSave.BackColor = Color.FromArgb(24, 30, 54);
+            CrMon_btnSave.Dock = DockStyle.Fill;
             CrMon_btnSave.FlatStyle = FlatStyle.Flat;
             CrMon_btnSave.Font = new Font("Myanmar Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CrMon_btnSave.ForeColor = SystemColors.ScrollBar;
-            CrMon_btnSave.Location = new Point(23, 110);
+            CrMon_btnSave.Location = new Point(3, 3);
             CrMon_btnSave.Name = "CrMon_btnSave";
-            CrMon_btnSave.Size = new Size(157, 37);
+            CrMon_btnSave.Size = new Size(94, 30);
             CrMon_btnSave.TabIndex = 14;
-            CrMon_btnSave.Text = "Damage Monster";
+            CrMon_btnSave.Text = "Hit!";
             CrMon_btnSave.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(24, 30, 54);
+            button3.Dock = DockStyle.Fill;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Myanmar Text", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ScrollBar;
+            button3.Location = new Point(103, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 30);
+            button3.TabIndex = 14;
+            button3.Text = "Crit!";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 1;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Controls.Add(label5, 0, 0);
+            tableLayoutPanel6.Controls.Add(textBox1, 0, 1);
+            tableLayoutPanel6.Location = new Point(3, 179);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 2;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel6.Size = new Size(200, 90);
+            tableLayoutPanel6.TabIndex = 4;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Bottom;
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(158, 161, 176);
+            label5.Location = new Point(55, 2);
+            label5.Margin = new Padding(2);
+            label5.Name = "label5";
+            label5.Size = new Size(90, 14);
+            label5.TabIndex = 0;
+            label5.Text = "Status Effects:";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(46, 51, 73);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.ForeColor = Color.FromArgb(158, 161, 176);
+            textBox1.Location = new Point(3, 21);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "None";
+            textBox1.ScrollBars = ScrollBars.Vertical;
+            textBox1.Size = new Size(194, 66);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "> Blind\r\n> Deaf\r\n";
             // 
             // button2
             // 
@@ -257,7 +338,7 @@
             button2.Name = "button2";
             button2.Size = new Size(32, 27);
             button2.TabIndex = 3;
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // Form2
             // 
@@ -273,10 +354,12 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -297,5 +380,10 @@
         private Label label4;
         private Button CrMon_btnSave;
         private Button button2;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Button button3;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Label label5;
+        private TextBox textBox1;
     }
 }
