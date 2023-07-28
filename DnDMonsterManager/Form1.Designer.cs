@@ -718,8 +718,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(1584, 861);
-            Controls.Add(pnlDashboard);
             Controls.Add(pnlCreateMonster);
+            Controls.Add(pnlDashboard);
             Controls.Add(pnlMonsterScroll);
             Controls.Add(pnlOutput);
             Controls.Add(pnlSettings);
