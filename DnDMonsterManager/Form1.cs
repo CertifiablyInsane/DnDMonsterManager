@@ -150,14 +150,14 @@ namespace DnDMonsterManager
                 return;
             }
             bool monsterVarHp = CrMon_boolHPVar.Checked;
-            if (!Enum.TryParse(CrMon_textSize.Text, true, out MonsterData.ESize monsterSize)
+            if (!Enum.TryParse(CrMon_textSize.Text, true, out ESize monsterSize)
                     || CrMon_textSize.SelectedIndex == 0)
             {
                 // Could not parse size
                 CreateMonster_SetErrorMessage("ERROR: Size Value Invalid");
                 return;
             }
-            if (!Enum.TryParse(CrMon_textType.Text, true, out MonsterData.EType monsterType)
+            if (!Enum.TryParse(CrMon_textType.Text, true, out EType monsterType)
                     || CrMon_textType.SelectedIndex == 0)
             {
                 // Could not parse type

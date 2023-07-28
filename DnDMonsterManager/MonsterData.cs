@@ -10,32 +10,6 @@ namespace DnDMonsterManager
 {
     public class MonsterData
     {
-        public enum EType
-        {
-            Aberration,
-            Beast,
-            Celestial,
-            Construct,
-            Dragon,
-            Elemental,
-            Fey,
-            Fiend,
-            Giant,
-            Humanoid,
-            Monstrosity,
-            Ooze,
-            Plant,
-            Undead
-        }
-        public enum ESize
-        {
-            Tiny,
-            Small,
-            Medium,
-            Large,
-            Huge,
-            Gargantuan
-        }
         public string _name { get; set; }
         public int _maxHp { get; set; }
         public bool _hpVar { get; set; }

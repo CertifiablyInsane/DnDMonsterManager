@@ -14,12 +14,18 @@ namespace DnDMonsterManager
         private Panel moveableArea;
         private Panel parentPanel;
         private Panel moveBar;
+        private Label healthLabel;
+        private Button btnHit;
+        private Button btnCrit;
+        private int health;
         public MonsterPanel(MonsterData sourceData, Panel moveableArea) 
         { 
             data = sourceData;
+            health = data._maxHp;
             this.moveableArea = moveableArea;
 
             // UI Creation Here
+            #region
             parentPanel = new();
             parentPanel.SetBounds(32, 32, 256, 384);    parentPanel.BackColor = Color.FromArgb(37, 42, 64);
             parentPanel.Parent = moveableArea;
@@ -48,7 +54,7 @@ namespace DnDMonsterManager
             btnClose.Font = new Font("Segoe UI", 10f, FontStyle.Bold);  btnClose.Text = "X";
             btnClose.Dock = DockStyle.Fill; btnClose.Margin = new Padding(4);
             btnClose.Parent = tPnlTop;
-            // TODO: Add closing functionality
+            btnClose.Click += btnClose_Click;
 
             TableLayoutPanel tPnl2 = new();
             tPnl2.BackColor = Color.FromArgb(24, 30, 54); tPnl2.Dock = DockStyle.Fill;
@@ -95,12 +101,12 @@ namespace DnDMonsterManager
             lbl3.Font = new Font("Microsoft Sans Serif", 9.75f); lbl3.ForeColor = Color.FromArgb(158, 161, 176);
             lbl3.Anchor = AnchorStyles.Bottom; lbl3.AutoSize = true;
             lbl3.Margin = new Padding(2); lbl3.Parent = tPnl4;
-            
-            Label lbl4 = new();
-            lbl4.BackColor = Color.FromArgb(24, 30, 54); lbl4.Text = data._maxHp.ToString();
-            lbl4.Font = new Font("Segoe UI", 14f); lbl4.ForeColor = Color.FromArgb(0, 126, 249);
-            lbl4.Anchor = AnchorStyles.Top; lbl4.AutoSize = true;
-            lbl4.Margin = new Padding(2); lbl4.Parent = tPnl4;
+
+            healthLabel = new();
+            healthLabel.BackColor = Color.FromArgb(24, 30, 54); healthLabel.Text = data._maxHp.ToString();
+            healthLabel.Font = new Font("Segoe UI", 14f); healthLabel.ForeColor = Color.FromArgb(0, 126, 249);
+            healthLabel.Anchor = AnchorStyles.Top; healthLabel.AutoSize = true;
+            healthLabel.Margin = new Padding(2); healthLabel.Parent = tPnl4;
 
             TableLayoutPanel tPnl5 = new();
             tPnl5.BackColor = Color.FromArgb(24, 30, 54); tPnl5.Dock = DockStyle.Fill;
@@ -108,19 +114,19 @@ namespace DnDMonsterManager
             tPnl5.RowCount = 1; tPnl5.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             tPnl5.Parent = tPnl4;
 
-            Button btnHit = new();
+            btnHit = new();
             btnHit.BackColor = Color.FromArgb(24, 30, 54);  btnHit.ForeColor = Color.FromArgb(200, 200, 200);
             btnHit.FlatStyle = FlatStyle.Flat;
             btnHit.Font = new Font("Myanmar Text", 12f);    btnHit.Text = "Hit!";   btnHit.TextAlign = ContentAlignment.MiddleCenter;
             btnHit.Anchor = AnchorStyles.None; btnHit.Dock = DockStyle.Fill; btnHit.Parent = tPnl5;
-            // TODO: Add Button Hit Code
+            btnHit.Click += btnDamage_Click;
 
-            Button btnCrit = new();
+            btnCrit = new();
             btnCrit.BackColor = Color.FromArgb(24, 30, 54); btnCrit.ForeColor = Color.FromArgb(200, 200, 200);
             btnCrit.FlatStyle = FlatStyle.Flat;
             btnCrit.Font = new Font("Myanmar Text", 12f); btnCrit.Text = "Crit!"; btnCrit.TextAlign = ContentAlignment.MiddleCenter;
             btnCrit.Anchor = AnchorStyles.None; btnCrit.Dock = DockStyle.Fill; btnCrit.Parent = tPnl5;
-            // TODO: Add Button Crit Code
+            btnCrit.Click += btnDamage_Click;
 
             TableLayoutPanel tPnl6 = new();
             tPnl6.BackColor = Color.FromArgb(24, 30, 54); tPnl6.Dock = DockStyle.Fill;
@@ -140,18 +146,27 @@ namespace DnDMonsterManager
             tb1.Multiline = true;   tb1.Dock = DockStyle.Fill;  tb1.PlaceholderText = "None";
             tb1.Parent = tPnl6;
 
-            Button btnInfo = new();
-            btnInfo.BackColor = Color.FromArgb(24, 30, 54); btnInfo.Image = Properties.Resources.info_24;
-            btnInfo.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
-            btnInfo.FlatStyle = FlatStyle.Flat; btnInfo.FlatAppearance.BorderSize = 0;
-            btnInfo.Size = new Size(32, 27);
-            btnInfo.Parent = tPnl2;
-            // Add info functionality
+            if(data._link != string.Empty)
+            {
+                Button btnInfo = new();
+                btnInfo.BackColor = Color.FromArgb(24, 30, 54); btnInfo.Image = Properties.Resources.info_24;
+                btnInfo.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+                btnInfo.FlatStyle = FlatStyle.Flat; btnInfo.FlatAppearance.BorderSize = 0;
+                btnInfo.Size = new Size(32, 27);
+                btnInfo.Parent = tPnl2;
+                btnInfo.Click += btnInfo_Click;
+            }
+            #endregion
         }
 
         public void Destroy()
         {
             parentPanel.Dispose();
+        }
+
+        private void btnClose_Click(object? sender, EventArgs e)
+        {
+            Destroy();
         }
 
         private void pnlMoveable_MouseDown(object? sender, MouseEventArgs e)
@@ -186,6 +201,44 @@ namespace DnDMonsterManager
             if (parentPanel.Location.Y + parentPanel.Height > moveableArea.Height)
             {
                 parentPanel.Location = new Point(parentPanel.Location.X, moveableArea.Height - parentPanel.Height);
+            }
+        }
+
+        private void btnDamage_Click(object? sender, EventArgs e)
+        {
+            if(sender == null) return;
+            string[] result = Prompt.ShowDamageDialogue("Enter Damage Amount and Type", "Damage Monster");
+            int.TryParse(result[0], out int damage);
+            Enum.TryParse(result[1], true, out DamageType damageType);
+
+            health -= damage;
+            if(health <= 0)
+            {
+                // Kill Enemy
+            }
+            else
+            {
+                healthLabel.Text = health.ToString();
+                string flavour = FlavourGenerator.Generate
+                    (
+                        data,
+                        health,
+                        damage,
+                        damageType,
+                        sender.Equals(btnCrit)
+                    );
+                if(flavour != "")
+                {
+                    Prompt.ShowAlert(flavour, "Damage Monster");
+                }
+            }
+        }
+
+        private void btnInfo_Click(object? sender, EventArgs e)
+        {
+            if(data._link != string.Empty)
+            {
+                System.Diagnostics.Process.Start(data._link);
             }
         }
     }

@@ -48,6 +48,8 @@
             label5 = new Label();
             textBox1 = new TextBox();
             button2 = new Button();
+            numericUpDown2 = new NumericUpDown();
+            comboBox1 = new ComboBox();
             pnlMonster_1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -57,6 +59,7 @@
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // pnlMonster_1
@@ -340,11 +343,28 @@
             button2.TabIndex = 3;
             button2.UseVisualStyleBackColor = false;
             // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(74, 91);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(97, 23);
+            numericUpDown2.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(45, 188);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(162, 23);
+            comboBox1.TabIndex = 4;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(774, 523);
+            Controls.Add(comboBox1);
+            Controls.Add(numericUpDown2);
             Controls.Add(pnlMonster_1);
             Name = "Form2";
             Text = "Form2";
@@ -360,6 +380,7 @@
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
         }
 
@@ -385,5 +406,7 @@
         private TableLayoutPanel tableLayoutPanel6;
         private Label label5;
         private TextBox textBox1;
+        private NumericUpDown numericUpDown2;
+        private ComboBox comboBox1;
     }
 }
