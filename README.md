@@ -1,3 +1,6 @@
 # DnDMonsterManager
 
-Executable located in DnDMonsterManager/bin/Release/net7.0-windows
+Dashboard: Manage monsters and track HP
+Monsters: Add and edit monsters
+Scenarios: TBA
+Settings: TBA
