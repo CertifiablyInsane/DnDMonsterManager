@@ -33,6 +33,7 @@
             tableLayoutPanel7 = new TableLayoutPanel();
             button1 = new Button();
             pnlMoveBar = new Panel();
+            pnlContainer = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             numericUpDown1 = new NumericUpDown();
@@ -53,6 +54,7 @@
             pnlMonster_1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
+            pnlContainer.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -77,7 +79,7 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(tableLayoutPanel7, 0, 0);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(pnlContainer, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -95,7 +97,6 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 32F));
             tableLayoutPanel7.Controls.Add(button1, 1, 0);
             tableLayoutPanel7.Controls.Add(pnlMoveBar, 0, 0);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
             tableLayoutPanel7.Location = new Point(0, 0);
             tableLayoutPanel7.Margin = new Padding(0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -129,8 +130,17 @@
             pnlMoveBar.Size = new Size(184, 32);
             pnlMoveBar.TabIndex = 1;
             // 
+            // pnlContainer
+            // 
+            pnlContainer.Controls.Add(tableLayoutPanel2);
+            pnlContainer.Location = new Point(3, 35);
+            pnlContainer.Name = "pnlContainer";
+            pnlContainer.Size = new Size(210, 305);
+            pnlContainer.TabIndex = 5;
+            // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.BackColor = Color.FromArgb(24, 30, 54);
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 0);
@@ -139,7 +149,7 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel6, 0, 3);
             tableLayoutPanel2.Controls.Add(button2, 0, 4);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 35);
+            tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 5;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
@@ -253,6 +263,7 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.Controls.Add(CrMon_btnSave, 0, 0);
             tableLayoutPanel5.Controls.Add(button3, 1, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(3, 53);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
@@ -294,12 +305,13 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel6.Controls.Add(label5, 0, 0);
             tableLayoutPanel6.Controls.Add(textBox1, 0, 1);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(3, 179);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel6.Size = new Size(200, 90);
+            tableLayoutPanel6.Size = new Size(204, 90);
             tableLayoutPanel6.TabIndex = 4;
             // 
             // label5
@@ -308,7 +320,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(158, 161, 176);
-            label5.Location = new Point(55, 2);
+            label5.Location = new Point(57, 2);
             label5.Margin = new Padding(2);
             label5.Name = "label5";
             label5.Size = new Size(90, 14);
@@ -326,7 +338,7 @@
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "None";
             textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(194, 66);
+            textBox1.Size = new Size(198, 66);
             textBox1.TabIndex = 1;
             textBox1.Text = "> Blind\r\n> Deaf\r\n";
             // 
@@ -371,6 +383,7 @@
             pnlMonster_1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
+            pnlContainer.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -408,5 +421,6 @@
         private TextBox textBox1;
         private NumericUpDown numericUpDown2;
         private ComboBox comboBox1;
+        private Panel pnlContainer;
     }
 }

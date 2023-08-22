@@ -33,6 +33,7 @@
             CrMon_textType = new ComboBox();
             CrMon_btnSave = new Button();
             button1 = new Button();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)CrMon_intHP).BeginInit();
             SuspendLayout();
             // 
@@ -106,12 +107,22 @@
             button1.Text = "Apply";
             button1.UseVisualStyleBackColor = false;
             // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.ForeColor = SystemColors.ScrollBar;
+            textBox1.Location = new Point(124, 35);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(256, 30);
+            textBox1.TabIndex = 15;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 30, 54);
             ClientSize = new Size(484, 111);
+            Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(CrMon_btnSave);
             Controls.Add(CrMon_textType);
@@ -122,6 +133,7 @@
             Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)CrMon_intHP).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -130,5 +142,6 @@
         private ComboBox CrMon_textType;
         private Button CrMon_btnSave;
         private Button button1;
+        private TextBox textBox1;
     }
 }

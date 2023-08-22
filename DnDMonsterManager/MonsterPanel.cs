@@ -17,6 +17,7 @@ namespace DnDMonsterManager
         private Label healthLabel;
         private Button btnHit;
         private Button btnCrit;
+        private TextBox statusBox;
         private int health;
         public MonsterPanel(MonsterData sourceData, Panel moveableArea) 
         { 
@@ -140,11 +141,11 @@ namespace DnDMonsterManager
             lbl5.Anchor = AnchorStyles.Bottom; lbl5.AutoSize = true;
             lbl5.Margin = new Padding(2);  lbl5.Parent = tPnl6;
 
-            TextBox tb1 = new();
-            tb1.BackColor = Color.FromArgb(46, 51, 73); tb1.BorderStyle = BorderStyle.None;
-            tb1.ForeColor = Color.FromArgb(158, 161, 176);  tb1.ScrollBars = ScrollBars.Vertical;
-            tb1.Multiline = true;   tb1.Dock = DockStyle.Fill;  tb1.PlaceholderText = "None";
-            tb1.Parent = tPnl6;
+            statusBox = new();
+            statusBox.BackColor = Color.FromArgb(46, 51, 73); statusBox.BorderStyle = BorderStyle.None;
+            statusBox.ForeColor = Color.FromArgb(158, 161, 176);  statusBox.ScrollBars = ScrollBars.Vertical;
+            statusBox.Multiline = true;   statusBox.Dock = DockStyle.Fill;  statusBox.PlaceholderText = "None";
+            statusBox.Parent = tPnl6;
 
             if(data._link != string.Empty)
             {
@@ -214,22 +215,26 @@ namespace DnDMonsterManager
             health -= damage;
             if(health <= 0)
             {
+                healthLabel.Text = 0.ToString();
                 // Kill Enemy
             }
             else
             {
                 healthLabel.Text = health.ToString();
-                string flavour = FlavourGenerator.Generate
+                string[] flavour = FlavourGenerator.Generate
                     (
                         data,
+                        health + damage, // HP before damage
                         health,
                         damage,
                         damageType,
                         sender.Equals(btnCrit)
                     );
-                if(flavour != "")
+                // flavour[0] is alert message, flavour[1] is status menu
+                if(flavour[0] != string.Empty)
                 {
-                    Prompt.ShowAlert(flavour, "Damage Monster");
+                    Prompt.ShowAlert(flavour[0], "Damage Monster");
+                    statusBox.Text += $"\n- {flavour[1]}";
                 }
             }
         }
@@ -238,7 +243,13 @@ namespace DnDMonsterManager
         {
             if(data._link != string.Empty)
             {
-                System.Diagnostics.Process.Start(data._link);
+                var uri = data._link;
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    UseShellExecute = true,
+                    FileName = uri
+                };
+                System.Diagnostics.Process.Start(psi);
             }
         }
     }
